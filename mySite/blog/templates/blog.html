@@ -1,0 +1,39 @@
+{# Extending the base template 'header.html' #}
+{% extends "header.html" %}
+
+{# Adding custom styles for the blog post list #}
+{% block styles %}
+<style>
+    .post-container {
+        margin: 20px;
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+    }
+    .post-date {
+        font-size: 0.9em;
+        color: #888;
+    }
+    .post-title {
+        font-size: 1.2em;
+        color: #007bff;
+        text-decoration: none;
+    }
+    .post-title:hover {
+        text-decoration: underline;
+    }
+</style>
+{% endblock %}
+
+{# Defining the content block that will be filled with specific content for this template #}
+{% block content %}
+    {# Looping through each post in the object_list #}
+    {% for post in object_list %}
+        <div class="post-container">
+            {# Displaying the date of the post in the format "Y-m-d" #}
+            <span class="post-date">{{ post.date|date:"Y-m-d" }}</span>
+            {# Providing a link to the post's detail page with the title #}
+            <a href="{{ post.id }}" class="post-title">{{ post.title }}</a>
+        </div>
+    {% endfor %}
+{% endblock %}
+

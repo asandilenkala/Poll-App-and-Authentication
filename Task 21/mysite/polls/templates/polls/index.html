@@ -1,0 +1,53 @@
+{% load static %} <!-- Load the static files template tag -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polls</title>
+    <!-- Link to the Bootstrap CSS file in the static directory -->
+    <link rel="stylesheet" href="{% static 'polls/bootstrap.min.css' %}">
+    <!-- Optional: Add custom styling here -->
+    <style>
+        body {
+            background-color: #f8f9fa; /* Light grey background */
+            color: #343a40; /* Dark grey text color */
+        }
+        h1 {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #007bff; /* Bootstrap primary color */
+        }
+        .list-group-item {
+            border-radius: 0.25rem;
+            margin-bottom: 10px;
+            background-color: #ffffff; /* White background for list items */
+        }
+        .list-group-item a {
+            text-decoration: none;
+            color: #007bff; /* Link color */
+        }
+        .list-group-item a:hover {
+            text-decoration: underline;
+            color: #0056b3; /* Darker blue on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Polls</h1>
+        <!-- Start of the list group to display latest questions -->
+        <ul class="list-group">
+            <!-- Loop through the latest_question_list and display each question -->
+            {% for question in latest_question_list %}
+                <li class="list-group-item">
+                    <!-- Create a link to the detail view of each question -->
+                    <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    <!-- Optional: Add JavaScript or additional scripts here -->
+</body>
+</html>

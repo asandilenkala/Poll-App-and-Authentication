@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Link to Bootstrap CSS for styling -->
+    <link rel="stylesheet" href="{% static 'polls/bootstrap.min.css' %}">
+    <style>
+        /* Custom styling for the login page */
+        body {
+            background-color: #f8f9fa; /* Light background color for the page */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+        }
+        .container {
+            max-width: 400px; /* Limit the width of the form container */
+            padding: 20px;
+            background-color: #ffffff; /* White background for the form */
+            border-radius: 8px; /* Rounded corners for the form */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Subtle shadow around the form */
+        }
+        h2 {
+            margin-bottom: 20px; /* Spacing below the heading */
+        }
+        .form-group {
+            margin-bottom: 15px; /* Spacing between form elements */
+        }
+        .btn-primary {
+            width: 100%; /* Full-width button */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Page Heading -->
+        <h2 class="text-center">Login</h2>
+        <!-- Login Form -->
+        <form method="post">
+            {% csrf_token %}
+            <!-- Username Field -->
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" class="form-control" id="username" required>
+            </div>
+            <!-- Password Field -->
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" class="form-control" id="password" required>
+            </div>
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</body>
+</html>
