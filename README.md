@@ -36,3 +36,26 @@ Installation:
 > python manage.py runserver
 
 6. Access the application: Open your web browser and go to http://127.0.0.1:8000/ to access the poll application.
+
+Usage:
+
+1. Register a New User:
+> Navigate to the registration page to create a new account.
+
+2. Login:
+   > After registering, go to the login page and sign in with your credentials.
+
+3. Vote in Polls:
+> Once logged in, you can participate in any available polls.
+
+4.Logout:
+> You can log out after participating in the polls.
+
+Contributing:
+
+If you'd like to contribute to this project, please fork the repository and submit a pull request.
+
+License:
+
+> This project is open-source and available under the MIT License.
+
